@@ -2,53 +2,29 @@ import logo from "./../assets/logo.png";
 import burger from "./../assets/burger.svg";
 import { Link } from "wouter";
 
-function Nav() {
+function Nav({ inLanding }) {
   return (
-    <div className="h-fit flex justify-center items-center font-thin text-lg bg-white z-50 max-[940px]:h-full max-[940px]:justify-between">
+    <div
+      className={`w-full h-fit flex justify-center items-center font-thin text-lg z-50 max-[940px]:justify-between ${
+        inLanding ? " absolute top-0 bg-transparent" : " bg-black"
+      }`}
+    >
       {/*normal nav*/}
       <div className="flex justify-between w-full px-10 h-[10dvh] max-[940px]:hidden">
         <ul className="flex items-center justify-start w-2/3 h-full">
-          <Link href="/" className="text-white no-underline">
-            <li className="flex items-center justify-center px-3 text-black text-nowrap cursor-pointer max-lg:text-sm max-[972px]:text-xs">
-              <img
-                src={logo}
-                alt="logo-for-nav"
-                className="h-[8dvh] object-contain"
-              />
-            </li>
-          </Link>
           <Link
             href="/"
             className="font-semibold text-white no-underline lg:text-sm xl:text-base"
           >
-            <li className="flex items-center justify-center text-black text-nowrap px-3 cursor-pointer max-lg:text-sm max-[972px]:text-xs">
+            <li className="flex items-center justify-center text-white text-nowrap px-3 cursor-pointer max-lg:text-sm max-[972px]:text-xs">
               Home
             </li>
           </Link>
           <Link
-            href="/something"
-            className="font-semibold text-white no-underline lg:text-sm xl:text-base"
-          >
-            <li className="flex items-center justify-center text-black text-nowrap px-3 cursor-pointer max-lg:text-sm max-[972px]:text-xs"
-            >
-              Menu
-            </li>
-          </Link>
-          <Link
-            href="/services"
-            className="font-semibold text-white no-underline lg:text-sm xl:text-base"
-          >
-            <li className="flex items-center justify-center text-black text-nowrap px-3 cursor-pointer max-lg:text-sm max-[972px]:text-xs">
-              Services
-            </li>
-          </Link>
-        </ul>
-        <ul className="flex items-center justify-end w-1/3 h-full">
-          <Link
             href="/aboutus"
             className="font-semibold text-white no-underline lg:text-sm xl:text-base"
           >
-            <li className="flex items-center justify-center text-black text-nowrap px-3 cursor-pointer max-lg:text-sm max-[972px]:text-xs">
+            <li className="flex items-center justify-center text-white text-nowrap px-3 cursor-pointer max-lg:text-sm max-[972px]:text-xs">
               About Us
             </li>
           </Link>
@@ -56,16 +32,34 @@ function Nav() {
             href="/contact"
             className="font-semibold text-white no-underline lg:text-sm xl:text-base"
           >
-            <li className="flex items-center justify-center text-black text-nowrap px-3 cursor-pointer max-lg:text-sm max-[972px]:text-xs">
+            <li className="flex items-center justify-center text-white text-nowrap px-3 cursor-pointer max-lg:text-sm max-[972px]:text-xs">
               Contact Us
+            </li>
+          </Link>
+        </ul>
+        <ul className="flex items-center justify-end w-1/3 h-full">
+          <Link
+            href="/services"
+            className="font-semibold text-white no-underline lg:text-sm xl:text-base"
+          >
+            <li className="flex items-center justify-center text-white text-nowrap px-3 cursor-pointer max-lg:text-sm max-[972px]:text-xs">
+              Services
             </li>
           </Link>
           <Link
             href="/projects"
             className="font-semibold text-white no-underline lg:text-sm xl:text-base"
           >
-            <li className="flex items-center justify-center text-black text-nowrap px-3 cursor-pointer max-lg:text-sm max-[972px]:text-xs">
+            <li className="flex items-center justify-center text-white text-nowrap px-3 cursor-pointer max-lg:text-sm max-[972px]:text-xs">
               Projects
+            </li>
+          </Link>
+          <Link
+            href="/design"
+            className="font-semibold text-white no-underline lg:text-sm xl:text-base"
+          >
+            <li className="flex items-center justify-center text-white text-nowrap px-3 cursor-pointer max-lg:text-sm max-[972px]:text-xs">
+              Designs
             </li>
           </Link>
         </ul>
@@ -80,13 +74,17 @@ function Nav() {
       </div>
       {/*logo for small screen nav*/}
       <div className="hidden max-[940px]:block pr-6">
-        <img src={logo} alt="logo-for-small-screen" className="scale-75" />
+        <img
+          src={logo}
+          alt="logo-for-small-screen"
+          className="scale-75 h-[7dvh] bg-white rounded-md"
+        />
       </div>
       {/*Nav Modal for small screens*/}
       <div
         className="modal fade"
         id="staticBackdrop"
-        data-coreui-backdrop="static"
+        data-coreui-backdrop="false"
         data-coreui-keyboard="false"
         tabIndex="-1"
         aria-labelledby="staticBackdropLabel"
@@ -113,27 +111,6 @@ function Nav() {
                   </li>
                 </Link>
                 <Link
-                  href="/something"
-                >
-                  <li
-                    className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
-                    data-coreui-dismiss="modal"
-                  >
-                    Menu
-                  </li>
-                </Link>
-                <Link
-                  href="/services"
-                  className="w-full text-white no-underline"
-                >
-                  <li
-                    className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
-                    data-coreui-dismiss="modal"
-                  >
-                    Services
-                  </li>
-                </Link>
-                <Link
                   href="/aboutus"
                   className="w-full text-white no-underline"
                 >
@@ -156,6 +133,17 @@ function Nav() {
                   </li>
                 </Link>
                 <Link
+                  href="/services"
+                  className="w-full text-white no-underline"
+                >
+                  <li
+                    className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
+                    data-coreui-dismiss="modal"
+                  >
+                    Services
+                  </li>
+                </Link>
+                <Link
                   href="/projects"
                   className="w-full text-white no-underline"
                 >
@@ -164,6 +152,17 @@ function Nav() {
                     data-coreui-dismiss="modal"
                   >
                     Projects
+                  </li>
+                </Link>
+                <Link
+                  href="/designs"
+                  className="w-full text-white no-underline"
+                >
+                  <li
+                    className="flex items-center justify-center w-full text-black cursor-pointer text-nowrap max-lg:text-sm"
+                    data-coreui-dismiss="modal"
+                  >
+                    Designs
                   </li>
                 </Link>
               </ul>

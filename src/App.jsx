@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <>
-      <Nav />
+      <Nav inLanding={true}/>
       <Switch>
         <Route path="/" component={Landing} />
 
@@ -16,7 +16,7 @@ function App() {
         </Route>
 
         {/* Default route in a switch */}
-        <Route>404: No such page!</Route>
+        <Route><div className="flex items-center justify-center h-dvh bg-[#407CE0] text-white font-bold"> 404: No such page!</div></Route>
       </Switch>
       <Footer />
     </>
