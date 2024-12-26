@@ -36,3 +36,9 @@
   font-family: "Sansita Swashed", Inter, system-ui, Avenir, Helvetica, Arial,
     sans-serif;
 }
+
+.lang-link:hover {
+  .lang-link-span {
+    display: flex;
+  }
+}

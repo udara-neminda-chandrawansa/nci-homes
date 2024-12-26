@@ -4,6 +4,7 @@ import email from "./../assets/Landing/email.png";
 import location from "./../assets/Landing/location.png";
 
 import ServiceCard from "../components/ServiceCard";
+import LSCarousel from "../components/LandingServiceCar";
 import { Link } from "wouter";
 
 import card_1 from "./../assets/Services/card_1.png";
@@ -21,25 +22,35 @@ function Landing() {
       >
         {/*Top layer (backdrop)*/}
         <div className="absolute bottom-0 h-full inset-0 bg-gradient-to-br from-[#000000D4] to-[#000000D4]"></div>
-        {/*left side*/}
+        {/*content*/}
         <div className="z-10 flex flex-col items-start justify-center w-2/3 gap-6 p-12 text-white max-sm:w-full max-md:p-6">
-          <h1 className="text-3xl">Build Your Dream With Us</h1>
-          <p className="text-justify">
+          <h1 className="text-3xl max-sm:text-2xl">Build Your Dream With Us</h1>
+          <p className="text-justify max-sm:text-sm">
             Whatever good things we build end up building us
           </p>
-          <p className="text-justify">
+          <p className="text-justify max-sm:text-sm">
             At NCI Homes, we transform your dreams into reality. From concept to
             completion, our expert team delivers high-quality construction
             solutions tailored to your vision. Build your future with
             confidence—build with NCI Homes."
           </p>
-          <h1 className="text-6xl poltawski motion-preset-slide-right">
+          <h1 className="text-6xl poltawski motion-preset-slide-right max-sm:text-4xl">
             NCI HOMES
           </h1>
         </div>
+        {/*banner bottom*/}
+        <div className="absolute bottom-0 z-10 w-full px-6 text-sm max-md:text-xs">
+            {/*service carousel*/}
+            <div className="w-full h-[15dvh] max-sm:h-fit bg-[#407CE0]">
+              <LSCarousel></LSCarousel>
+            </div>
+            {/*spacing*/}
+            <div className="w-full h-[5dvh]"></div>
+          </div>  
       </div>
-      {/*contact details*/}
-      <div className="relative h-[10dvh] flex justify-center bg-[#F1F1F1] max-md:p-6 max-md:h-fit max-sm:p-3">
+      
+      {/*contact details (hidden)*/}
+      <div className="relative h-[10dvh] hidden justify-center bg-[#F1F1F1] max-md:p-6 max-md:h-fit max-sm:p-3">
         <div className="md:h-[20dvh] z-20 flex w-full text-sm bg-white rounded-lg md:-translate-y-1/2 md:w-5/6 md:absolute max-md:flex-col">
           <div className="flex flex-col items-center justify-center w-1/3 gap-3 max-md:w-full max-md:py-3">
             <img src={call} alt="call" />
@@ -59,7 +70,7 @@ function Landing() {
       </div>
       {/*who we are*/}
       <div className="bg-[#F1F1F1] px-12 py-6 max-md:px-6 max-sm:p-3 flex flex-col items-center gap-3">
-        <h1 className="text-5xl font-semibold text-center poltawski">
+        <h1 className="text-5xl font-semibold text-center poltawski max-md:text-3xl">
           Who We Are
         </h1>
         <p className="text-justify sm:text-center max-sm:text-sm">
@@ -104,9 +115,9 @@ function Landing() {
           ></ServiceCard>
         </div>
         <div className="flex justify-center items-center h-[5dvh] w-full">
-            <Link href="/services">
-                <p className="underline underline-offset-4">View All</p>
-            </Link>
+          <Link href="/services">
+            <p className="underline underline-offset-4">View All</p>
+          </Link>
         </div>
       </div>
     </div>
