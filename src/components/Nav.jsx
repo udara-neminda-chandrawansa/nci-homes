@@ -138,8 +138,9 @@ function Nav({ inLanding }) {
       {/*burger button*/}
       <div
         className="hidden place-items-center h-[10dvh] px-10 cursor-pointer place-content-center py-6 max-xl:grid text-black"
-        data-coreui-toggle="modal"
-        data-coreui-target="#staticBackdrop"
+        data-coreui-toggle="offcanvas"
+        data-coreui-target="#offcanvasExample"
+        aria-controls="offcanvasExample"
       >
         <img src={burger} alt="burger-icon" className="scale-150" />
       </div>
@@ -239,6 +240,60 @@ function Nav({ inLanding }) {
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+      {/*Nav offcanvas for small screens*/}
+      <div
+        className="offcanvas offcanvas-start"
+        tabIndex="-1"
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+      >
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="offcanvasExampleLabel"></h5>
+          <button
+            type="button"
+            className="btn-close text-reset"
+            data-coreui-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div className="offcanvas-body">
+          <ul className="flex flex-col items-center justify-start h-full gap-6 font-medium">
+            <Link href="/" className="w-full text-white no-underline">
+              <li className="flex items-center justify-start w-full pb-3 text-black border-b-2 cursor-pointer text-nowrap max-lg:text-sm" data-coreui-dismiss="offcanvas">
+                Home
+              </li>
+            </Link>
+            <Link href="/aboutus" className="w-full text-white no-underline">
+              <li className="flex items-center justify-start w-full pb-3 text-black border-b-2 cursor-pointer text-nowrap max-lg:text-sm" data-coreui-dismiss="offcanvas">
+                About Us
+              </li>
+            </Link>
+            <Link href="/services" className="w-full text-white no-underline">
+              <li className="flex items-center justify-start w-full pb-3 text-black border-b-2 cursor-pointer text-nowrap max-lg:text-sm" data-coreui-dismiss="offcanvas">
+                Services
+              </li>
+            </Link>
+            <Link href="/projects" className="w-full text-white no-underline">
+              <li className="flex items-center justify-start w-full pb-3 text-black border-b-2 cursor-pointer text-nowrap max-lg:text-sm" data-coreui-dismiss="offcanvas">
+                Projects
+              </li>
+            </Link>
+            <Link href="/designs" className="w-full text-white no-underline">
+              <li className="flex items-center justify-start w-full pb-3 text-black border-b-2 cursor-pointer text-nowrap max-lg:text-sm" data-coreui-dismiss="offcanvas">
+                Designs
+              </li>
+            </Link>
+            <li className="w-full" data-coreui-dismiss="offcanvas">
+              <NavButton
+                displayText="Contact Us"
+                url="/contact"
+                theme={"dark"}
+                width={"full"}
+              />
+            </li>
+          </ul>
         </div>
       </div>
     </div>
